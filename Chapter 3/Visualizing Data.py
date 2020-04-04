@@ -1,6 +1,9 @@
 ##matplotlib
 
+from matplotlib import pyplot as plt
+
 ###line graph
+
 
 from matplotlib import pyplot as plt
 years = [1950,1960,1970,1980,1990,2000,2010]
@@ -17,7 +20,7 @@ plt.show()
 movies = ["Annie Hall", "Ben-Hur","Casablanca","Gandhi","West Side Story"]
 num_oscars = [5,11,3,8,10]
 
-plot.bar(range(len(movies)), num_oscars)
+plt.bar(range(len(movies)), num_oscars)
 plt.title("My Favorite Movies")
 plt.ylabel("# of Academy Awards")
 plt.xticks(range(len(movies)),movies)
@@ -38,3 +41,20 @@ plt.xlabel("Decile")
 plt.ylabel("# of Students")
 plt.title("Distribution of Exam 1 Grades")
 plt.show
+
+###line charts
+
+variance = [1,2,4,8,16,32,64,128,256]
+bias_squared = [256,128,64,32,16,8,4,2,1]
+total_error = [x+y for x,y in zip(variance,bias_squared)]
+xs = [i for i, _ in enumerate(variance)]
+
+plt.plot(xs,variance, 'g-', label = 'variance') ##green solid
+plt.plot(xs,bias_squared,'r-.',label='bias^2') ## red dashed
+plt.plot(xs,total_error,'b:',label='total errror') ##blue dotted
+
+plt.legen(loc=9)
+plt.xlabel("model complexity")
+plt.xticks([])
+plt.title("Bias Variance Tradeoff")
+plt.show()
